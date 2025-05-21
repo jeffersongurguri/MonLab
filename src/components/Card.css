@@ -1,0 +1,31 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #695454;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 5px;
+}
+
+/* classe textual que ordena os elemetnos em coluna */
+.card__textual {
+    height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-right: 10px;
+}
+
+.card__titulo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.card__status {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+}
