@@ -3,21 +3,22 @@ import "./Card.css"
 import { useState } from "react";
 
 function Titulo({children}) {
-    return <p className="card__titulo">{children}</p>
+    return <p  className="card__titulo">{children}</p>
 }
 
-function Status({ativo, inativo, danificado}) {
+function Status({ativo}) {
     let statusTxt = '';
+    const cssProps = {
+        color: ativo ? 'lime' : 'red',
+    }
     if (ativo) {
         statusTxt = 'Ativo';
     }
-    else if (inativo) {
+    else {
         statusTxt = 'Inativo';
     }
-    else if (danificado) {
-        statusTxt = 'Danificado';
-    }
-    return (<span className="card__status">{statusTxt}</span>);
+
+    return (<span style={cssProps} className="card__status">{statusTxt}</span>);
 }
 
 function Data() {
@@ -28,12 +29,15 @@ function Data() {
 }
 
 export default function Card(props) {
+    const [ativo, setAtivo] = useState(false);
+
+
     return (
-            <div className="card">
-             <NodeIcon {...props}></NodeIcon>
+            <div className="card" onClick={() => {console.log('clicado'); setAtivo(!ativo)}}>
+             <NodeIcon ativo={ativo}></NodeIcon>
                 <div className="card__textual">
-                    <Titulo>Computador {props.id}</Titulo>
-                    <Status {...props} ></Status>
+                    <Titulo ativo={ativo}>Computador {props.id}</Titulo>
+                    <Status ativo={ativo}></Status>
                     <Data></Data>
                 </div>
             </div>

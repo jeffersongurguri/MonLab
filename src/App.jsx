@@ -8,7 +8,7 @@ export default function App() {
   return (
     <>
     <Grade>
-      {_.range(20).map(e => (<Card ativo id={e} key={e}> </Card>))}
+      {_.range(20).map(e => (<Card id={e} key={e}> </Card>))}
     </Grade>
     </>
   );
