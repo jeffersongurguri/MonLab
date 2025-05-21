@@ -1,6 +1,6 @@
 import NodeIcon from "./NodeIcon";
 import "./Card.css"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Titulo({children}) {
     return <p  className="card__titulo">{children}</p>
@@ -30,6 +30,15 @@ function Data() {
 
 export default function Card(props) {
     const [ativo, setAtivo] = useState(false);
+
+    useEffect(() => {
+        fetch(`http://localhost:4545/${props.id}`)
+            .then(response => response.json())
+            .then(data => {
+                setAtivo(data.ativo);
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }, []);
 
 
     return (
