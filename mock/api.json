@@ -1,8 +1,8 @@
 {
   "1": {"ativo": true},
   "2": {"ativo": true},
-  "3": {"ativo": true},
-  "4": {"ativo": true},
+  "3": {"ativo": false},
+  "4": {"ativo": false},
   "5": {"ativo": true},
   "6": {"ativo": true},
   "7": {"ativo": true},

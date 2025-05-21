@@ -32,12 +32,14 @@ export default function Card(props) {
     const [ativo, setAtivo] = useState(false);
 
     useEffect(() => {
-        fetch(`http://localhost:4545/${props.id}`)
-            .then(response => response.json())
-            .then(data => {
-                setAtivo(data.ativo);
-            })
-            .catch(error => console.error('Error fetching data:', error));
+        setInterval(() => {
+            fetch(`http://localhost:4545/${props.id}`)
+                .then(response => response.json())
+                .then(data => {
+                    setAtivo(data.ativo);
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }, 5000);
     }, []);
 
 
